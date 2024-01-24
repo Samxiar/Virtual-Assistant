@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>SG ASSIST</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{{url_for('static', filename='vendors/themify-icons/css/themify-icons.css') }}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{{  url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="/">SG ASSIST</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="/">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">About</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">Prompts</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="/signup" id="signup">Signup</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <!-- Sign up form section -->
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">New to SG Assist? Sign up for free.</p>
+            <h6 class="section-title mb-5">Sign Up</h6>
+            <!-- Sign up form -->
+            <form method="POST" action="{{ url_for('signup') }}" style="padding-top: 0px; margin-bottom: 566px;">
+                <div class="form-group col-sm-6" style="
+                margin-left: 272px;
+            ">
+                    <input type="text" size="50" class="form-control" placeholder="Username" name="username" required>
+                </div>
+                <div class="form-group col-sm-6"style="
+                margin-left: 272px;
+            ">
+                    <input type="email" class="form-control" placeholder="Enter Email" name="email" required
+                        style="margin-top: 11px; margin-bottom: 12px;">
+                </div>
+                <div class="form-group col-sm-6" style="
+                margin-left: 272px;
+            ">
+                    <input type="password" size="50" class="form-control" placeholder="Password" name="password"
+                        required>
+                </div>
+                <div class="form-group col-sm-12 mt-3">
+                    <input type="submit" value="Signup" class="btn btn-outline-primary rounded"
+                    style="
+                    margin-left: 100px;
+                ">
+                </div>
+                <small onmouseover="this.style.fontSize='1.1em'; this.style.textDecoration='underline';"
+                    onmouseout="this.style.fontSize='1em'; this.style.textDecoration='none';"><a href="login">Already Signed in? Log in Now </a></small>
+            </form><!-- end of contact form -->
+        </div><!-- end of container -->
+    </section><!-- end of contact section -->
+
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy; <a
+                    href="https://samxiar.vsble.me/">SAMCOEUS. All rights reserved</a>
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="mailto:samcoeus@gmail.com" class="link"><i class="ti-google"></i></a>
+                <a href="/">✖</a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <!-- core  -->
+    <script src="{{ url_for('static', filename='vendors/jquery/jquery-3.4.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/bootstrap/bootstrap.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/bootstrap/bootstrap.affix.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

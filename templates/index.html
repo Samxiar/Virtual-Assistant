@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>SG ASSIST</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{{url_for('static', filename='vendors/themify-icons/css/themify-icons.css') }}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{{  url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="/">SG ASSIST</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">About</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">Prompts</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="/login" id="signup">Login</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="/signup" id="signup">Signup</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <!-- page header -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content container">
+            <h1 class="header-title">
+                <h6 class="section-title mb-5">THIS IS YOUR VIRTUAL ASSISTANT</h6>
+            </h1>
+            <p class="header-subtitle">We are a team of Developers invested in the field of IT</p>
+
+    </header><!-- end of page header -->
+
+    <!-- about section -->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="{{ url_for('static', filename='imgs/man.png') }}" class="about-img"
+                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="about-caption">
+                    <h2 class="section-title mb-3">PROJECT</h2>
+                    <p>
+                        The virtual assistant, powered by Google Palm's open source Large Language model, seamlessly
+                        understands and responds to user queries, offering a sophisticated and efficient interactive
+                        experience.
+                        <br>
+                        <bold>Disclaimer:</bold> This virtual assistant, utilizing Google Palm's open source Large
+                        Language model, is a work in progress. It may not guarantee complete accuracy. I do not assume
+                        responsibility for any inaccuracies or consequences resulting from the information provided. The
+                        model is not fully developed and may have limitations. Use at your own discretion.
+                    </p>
+                </div>
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section> <!-- end of about section -->
+
+    <!-- service section -->
+    <section class="section" id="service">
+        <div class="container text-center">
+            <p class="section-subtitle">What can you do with the assistant?</p>
+            <h6 class="section-title mb-6">Functions</h6>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="{{ url_for('static', filename='imgs/pencil-case.svg') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Ideas</h6>
+                            <p class="subtitle">Creative Ideas that are 100% ethical in nature.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="{{ url_for('static', filename='imgs/responsive.svg') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Independent</h6>
+                            <p class="subtitle">Generate commands for all the operating systems to play around.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="{{ url_for('static', filename='imgs/toolbox.svg') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Tools</h6>
+                            <p class="subtitle">Familiar with most of the computer science tools, can be helpful with
+                                step by step processes </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="body">
+                            <img src="{{ url_for('static', filename='imgs/analytics.svg') }}"
+                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                                class="icon">
+                            <h6 class="title">Analyze</h6>
+                            <p class="subtitle">It can Analyze case studies and somewhat complicated scenarios for you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of row -->
+        </div>
+    </section><!-- end of service section -->
+    <!-- portfolio section -->
+    <section class="section" id="portfolio">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you question the assistant? </p>
+            <h6 class="section-title mb-6">Prompts</h6>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img src="{{ url_for('static', filename='imgs/folio-1.jpg') }}" class="portfolio-card-img"
+                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>General Queries</h5>
+                                    <p class="font-weight-normal">Who was Albert Einstein? his achievements, him as a
+                                        person.</p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img class="portfolio-card-img" src="{{ url_for('static', filename='imgs/folio-2.jpg') }}"
+                            class="img-responsive rounded"
+                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>Code Generation</h5>
+                                    <p class="font-weight-normal">Write a python code to perform bubble sort {5,4,3,2,1}
+                                    </p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="portfolio-card">
+                        <img class="portfolio-card-img" src="{{ url_for('static', filename='imgs/folio-3.jpg') }}"
+                            class="img-responsive rounded"
+                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>General Knowledge Questions</h5>
+                                    <p class="font-weight-normal">Who is the Education minister of India?</p>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div><!-- end of row -->
+        </div><!-- end of container -->
+    </section> <!-- end of portfolio section -->
+
+    <!-- about us section -->
+    <section class="section" id="testmonial">
+        <div class="container text-center">
+            <p class="section-subtitle">Get to know the Developers</p>
+            <h6 class="section-title mb-6">About the Developers</h6>
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="{{ url_for('static', filename='imgs/avatar3.jpg') }}" class="testimonial-card-img"
+                                alt="..">
+                        </div>
+                        <div class="testimonial-card-body">
+                            <p class="testimonial-card-subtitle">Gauri Lad, an undergraduate student at VPM RZ Shah
+                                College, is not only a dedicated student but also a chess champion. Passionate about
+                                typing and binge-watching TV series, she embodies versatility. With an innate curiosity,
+                                she explores various facets of life, embodying a holistic approach to learning.</p>
+                            <h6 class="testimonial-card-title "
+                                style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"">Gauri Lad</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-6">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-card-img-holder">
+                                        <img src="{{ url_for('static', filename='imgs/avatar2.jpg') }}"
+                                            class="testimonial-card-img" alt="..">
+                                    </div>
+                                    <div class="testimonial-card-body">
+                                        <p class="testimonial-card-subtitle">Sameer Kulkarni, an undergraduate student
+                                            at VPM RZ
+                                            Shah College, shares Gauri's academic path. He is ardently passionate about
+                                            data science
+                                            and machine learning, displaying a deep affection for Python programming.
+                                            Beyond
+                                            academics, Sameer is a music production enthusiast and avid documentary
+                                            watcher,
+                                            showcasing his diverse and multifaceted interests.</p>
+                                        <h6 class="testimonial-card-title"
+                                            style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                                            Sameer Kulkarni</h6>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div> <!-- end of container -->
+    </section> <!-- end of testimonial section -->
+    <!-- contact section -->
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you communicate?</p>
+            <h6 class="section-title mb-5">Contact Us</h6>
+            <!-- contact form -->
+            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="form-row" style="
+                padding-top: 0px;
+            ">
+                    <div class="form-group col-sm-6">
+                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input type="email" class="form-control" placeholder="Enter Email" requried style="
+                        margin-top: 11px;
+                        margin-bottom: 12px;
+                    ">
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <textarea name="comment" id="comment" rows="6" class="form-control"
+                            placeholder="Write Something"></textarea>
+                    </div>
+                    <div class="form-group col-sm-12 mt-3">
+                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded" style="
+                        border-top-width: 57.111;
+                        margin-top: 17px;
+                    ">
+                    </div>
+                </div>
+            </form><!-- end of contact form -->
+        </div><!-- end of container -->
+    </section><!-- end of contact section -->
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy; <a
+                    href="https://samxiar.vsble.me/">SAMCOEUS. All rights reserved</a>
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="mailto:samcoeus@gmail.com" class="link"><i class="ti-google"></i></a>
+                <a href="components.html">cc</a>
+                <a href="/">✖</a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <script src="{{ url_for('static', filename='vendors/jquery/jquery-3.4.1.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/bootstrap/bootstrap.bundle.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendors/bootstrap/bootstrap.affix.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
