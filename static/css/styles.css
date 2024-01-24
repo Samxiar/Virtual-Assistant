@@ -395,7 +395,14 @@ h1, h2, h3, h4, h5, h6,
   font-weight: 500;
   line-height: 1.2;
 }
+
+#logoutbtn{
+background-color: transparent;
+border: none;
+}
 .assistant {
+  height: 80%;
+  width: 90%;
   font-family: "Courier Prime", monospace;
   position: absolute;
   top: 50%;
@@ -406,12 +413,36 @@ h1, h2, h3, h4, h5, h6,
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 2.5px;
-
-  /* Additional styles for scrollability */
-  max-height: 80vh; /* Set a maximum height, adjust as needed */
-  overflow: auto; /* Enable vertical scrolling if content overflows */
 }
-
+.ass-sub-btn{
+  background-color: #6d46a049;
+  border: none !important;;
+  border-radius: 2px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.ass-operate{
+  display: grid;
+  padding: 10px;
+  margin-right: 10px;
+  justify-content: flex-end;
+}
+.ass-res{
+  max-height: 50vh; /* Maximum height */
+  overflow: auto;
+}
+.ass-form{
+  padding: 10px;
+  margin-right: 10px;
+  justify-content: center;
+  display: flex;
+}
 h1, .h1 {
   font-size: 2.5rem;
 }

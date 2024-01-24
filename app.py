@@ -1,18 +1,19 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for,session
 import google.generativeai as genai
 from IPython.display import Markdown
 import textwrap
 import sqlite3
-import smtplib
+import re
 
 app = Flask(__name__)
+app.secret_key = '123456789'
 genai.configure(api_key="AIzaSyDAzepZoPJP4US2Lwhj_WcXi1YFqhCoAMA")
 model = genai.GenerativeModel('gemini-pro')
 responses = []
 
 def to_markdown(text):
     text = text.replace('•', '  *')
-    return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
+    return Markdown(textwrap.indent(text, '  ', predicate=lambda _: True))
 
 # Function to create the users table in the SQLite database
 def create_table():
@@ -61,6 +62,26 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html')
 
+# Function to set the user in the session
+def set_user_in_session(user):
+    session['user_id'] = user[0]  # Assuming the user ID is the first column in your 'users' table
+
+# Function to check if a user is logged in
+def is_user_logged_in():
+    return 'user_id' in session
+
+# Function to get the current user from the session
+def get_current_user():
+    if is_user_logged_in():
+        user_id = session['user_id']
+        conn = sqlite3.connect('users.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM users WHERE id=?', (user_id,))
+        user = cursor.fetchone()
+        conn.close()
+        return user
+    return None
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -68,11 +89,39 @@ def login():
         password = request.form['password']
         user = authenticate_user(username, password)
         if user:
+            set_user_in_session(user)
             return redirect(url_for('assistant'))
     return render_template('login.html')
 
+@app.route('/logout', methods=['GET'])
+def logout():
+    session.clear()  # Clear all session data
+    return redirect(url_for('index'))  # Redirect to the home page or any other page
+
+def interpret_double_stars_as_bold(text):
+    # Use regular expression to find double stars and replace with bold tags
+    bold_text = re.sub(r'\*\*(.*?)\*\*', r'**\1**', text)
+    return bold_text 
+
+
+# Modify the 'assistant' route to check if the user is logged in
+def format_and_print(response):
+    """
+    Formats and prints a multiline string response, preserving indentation.
+
+    Args:
+    response (str): Multiline string to be formatted and printed.
+    """
+    lines = response.split('\n')
+    formatted_lines = [line.strip() for line in lines]
+    formatted_response = '\n'.join(formatted_lines)
+    return formatted_response
+
 @app.route('/assistant', methods=['GET', 'POST'])
 def assistant():
+    if not is_user_logged_in():
+        return redirect(url_for('login'))
+
     if request.method == 'POST':
         user_input = request.form['user_input']
         
@@ -82,11 +131,15 @@ def assistant():
             try:
                 response = model.generate_content(user_input)
                 bot_reply = response.text.strip()
-                responses.append(bot_reply)
+                bot_reply_with_bold = interpret_double_stars_as_bold(bot_reply)
+                bot_reply_markdown = to_markdown(bot_reply_with_bold).data  # Extracting the content from Markdown object
+                formatted_bot_reply = format_and_print(bot_reply_markdown)
+                responses.append(formatted_bot_reply)
             except ValueError as e:
                 responses.append("Please use appropriate words.")
     
-    return render_template('assist.html', responses=responses)
+    formatted_responses = [format_and_print(response) for response in responses]
+    return render_template('assist.html', responses=formatted_responses)
 
 @app.route('/clear', methods=['POST'])
 def clear():
@@ -95,38 +148,7 @@ def clear():
 
 @app.route('/view-history', methods=['GET'])
 def view_history():
-    return render_template('assist.html', responses=responses)
-
-
-@app.route('/', methods=['GET', 'POST'])
-def contact_form():
-    if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
-
-        send_email(name, email, message)
-
-        # You can add additional logic here, such as redirecting to a thank you page
-
-    return render_template('/')
-
-def send_email(name, email, message):
-    smtp_server = 'smtp.example.com'
-    smtp_port = 587
-    smtp_username = 'your_username'
-    smtp_password = 'your_password'
-    sender_email = 'your_email@example.com'
-    receiver_email = 'samxiar@gmail.com'
-
-    subject = 'New Contact Form Submission'
-    body = f'Name: {name}\nEmail: {email}\nMessage: {message}'
-
-    # Simplest way to send an email using smtplib
-    with smtplib.SMTP(smtp_server, smtp_port) as server:
-        server.starttls()
-        server.login(smtp_username, smtp_password)
-        server.sendmail(sender_email, [receiver_email], f'Subject: {subject}\n\n{body}')
+    return render_template('assist.html', responses=responses, view_history=True)
 
 if __name__ == '__main__':
 
