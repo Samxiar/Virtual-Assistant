@@ -136,7 +136,7 @@ def assistant():
                 formatted_bot_reply = format_and_print(bot_reply_markdown)
                 responses.append(formatted_bot_reply)
             except ValueError as e:
-                responses.append("Please use appropriate words.")
+                responses.append("Error! Please Try Again.")
     
     formatted_responses = [format_and_print(response) for response in responses]
     return render_template('assist.html', responses=formatted_responses)
@@ -150,6 +150,3 @@ def clear():
 def view_history():
     return render_template('assist.html', responses=responses, view_history=True)
 
-if __name__ == '__main__':
-
-    app.run(debug=True)

@@ -88,7 +88,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #a919d4;
+  color: #000000;
   text-align: left;
   background-color: #fff;
 }
@@ -431,18 +431,101 @@ border: none;
   display: grid;
   padding: 10px;
   margin-right: 10px;
-  justify-content: flex-end;
+  justify-content: unset;
 }
 .ass-res{
   max-height: 50vh; /* Maximum height */
   overflow: auto;
 }
-.ass-form{
+.ass-form {
+  max-width: 400px; /* Adjust the maximum width as needed */
+  position: fixed;
+  bottom: 20px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f0f0f0;
+  border-radius: 20px;
   padding: 10px;
-  margin-right: 10px;
-  justify-content: center;
   display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
+
+.ass-form input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.ass-form input::placeholder {
+  color: #999; /* Placeholder text color */
+}
+
+.ass-form button {
+  background-color: #8f64c7; /* WhatsApp chat send button color */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.ass-form button:hover {
+  background-color: #5b3972; /* Hover color */
+}
+
+.ass-formmm {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.assistantt {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.assistantt label {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.assistantt input[type="text"] {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.ass-res p strong {
+  font-weight: bold;
+  font-size: 16px;
+}
+.ass-sub-btnnn {
+  background-color: #9377b8;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
 h1, .h1 {
   font-size: 2.5rem;
 }

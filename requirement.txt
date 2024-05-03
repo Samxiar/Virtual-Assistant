@@ -1,0 +1,6 @@
+google-generativeai
+flask
+request
+sqlite3
+re
+IPython
